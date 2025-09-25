@@ -89,7 +89,7 @@ sh tool-node-shell/setup.sh
 ```
 ### 5. Configure Node Labels
    
-If you are using ECS instances not listed in Section 2.1, please first configure the specifications of instance types in `scripts/kubernetes/vllm/src/ECSInstance.py`.
+If you are using ECS instances not listed in Section 2.1, please first configure the specifications of instance types in [scripts/kubernetes/vllm/src/ECSInstance.py](scripts/kubernetes/vllm/src/ECSInstance.py).
 
 First, label all GPU servers.
 ```

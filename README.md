@@ -46,7 +46,7 @@ docker build . --platform=linux/amd64 --tag [IMAGE_NAME_LOCAL_SERVER]
 docker build . --platform=linux/amd64 --tag [IMAGE_NAME_REMOTE_SERVER] -f Dockerfile_remote
 ```
 
-If you build images from source, please configure the image names in `scripts/kubernetes/vllm/src/ImageInfo.py`.
+If you build images from source, please configure the image names in [scripts/kubernetes/vllm/src/ImageInfo.py](scripts/kubernetes/vllm/src/ImageInfo.py).
 
 ### 2. Setup Environments
 
@@ -77,7 +77,7 @@ kubectl label node [node_name] gpu_server=true --overwrite
 ```
 
 Label all servers with specifications.
-Please also configure the specifications of instance types in `scripts/kubernetes/vllm/src/ECSInstance.py`.
+Please also configure the specifications of instance types in [scripts/kubernetes/vllm/src/ECSInstance.py](scripts/kubernetes/vllm/src/ECSInstance.py).
 ```
 kubectl label node [node_name] node.kubernetes.io/instance-type=[Instance Type] --overwrite
 ```
@@ -91,7 +91,7 @@ SHARE=1 ALIYUN=0 python label_nodes.py
 ### 3. Fetch Images and Download Models
 
 Run the following commands to fetch the required Docker images and download models. You can obtain your ModelScope token from [ModelScope](https://www.modelscope.cn/my/myaccesstoken).
-Models to download are listed in `scripts/kubernetes/vllm/src/ModelInfo.py`, classified in different model sets.
+Models to download are listed in [scripts/kubernetes/vllm/src/ModelInfo.py](scripts/kubernetes/vllm/src/ModelInfo.py), classified in different model sets.
 ```
 cd scripts/kubernetes/vllm
 # Fetch images
