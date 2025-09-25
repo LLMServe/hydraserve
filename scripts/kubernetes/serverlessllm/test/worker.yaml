@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sllm-server-worker
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      nodeName: us-east-1.192.168.16.244
+      terminationGracePeriodSeconds: 0
+      containers:
+      - name: sllm-server-worker
+        image: registry.us-east-1.aliyuncs.com/kubernetes-fc/sllm-serve-worker:v1
+        imagePullPolicy: Always
+        env:
+        - name: "WORKER_ID"
+          value: "0"
+        - name: "HEAD_IP"
+          value: #SERVER_POD_IP
+        - name: "STORAGE_IP"
+          value: #STORAGE_POD_IP
+        resources:
+          limits:
+            aliyun.com/gpu-mem: 22
+            memory: 200Gi
+        volumeMounts:
+        - mountPath: /models
+          name: sllm-server-worker-vol
+      volumes:
+      - name: sllm-server-worker-vol
+        hostPath:
+          path: /mnt
+          type: Directory

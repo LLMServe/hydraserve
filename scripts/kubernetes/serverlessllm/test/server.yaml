@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sllm-server
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      nodeName: us-east-1.192.168.16.238 
+      containers:
+      - name: sllm-server
+        image: registry.us-east-1.aliyuncs.com/kubernetes-fc/sllm-serve:v1

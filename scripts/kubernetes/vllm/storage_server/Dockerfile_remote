@@ -1,0 +1,5 @@
+FROM registry.cn-shanghai.aliyuncs.com/kubernetes-fc/modelscope-vllm:v1
+WORKDIR /vllm-workspace
+COPY remote_server.py .
+CMD python3 -u /vllm-workspace/remote_server.py
+EXPOSE 8888

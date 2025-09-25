@@ -1,0 +1,17 @@
+FROM registry.us-east-1.aliyuncs.com/kubernetes-fc/modelscope-vllm:backup
+
+WORKDIR /vllm-workspace
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install transformers==4.43.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+COPY scripts/image/download.cc .
+COPY scripts/image/json.hpp .
+RUN g++ download.cc -fopenmp -std=c++11 -O2 -o main
+
+COPY scripts/image/app.py ./app.py
+COPY scripts/image/chat_template/ ./chat_template
+COPY vllm /usr/local/lib/python3.10/dist-packages/vllm/
+
+CMD "/vllm-workspace/main"
+EXPOSE 8080

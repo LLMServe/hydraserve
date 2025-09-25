@@ -1,0 +1,4 @@
+{% for message in messages %}
+{{'<|' + message['role'] + '|>' + '\n' + message['content'] + '\n' }}
+{% endfor %}
+{{ '<|assistant|>' }}
