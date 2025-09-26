@@ -195,9 +195,9 @@ python src/close_storage_server.py
 If you use HydraServe in your research, please cite our [paper](https://arxiv.org/abs/2502.15524).
 
 ```
-@misc{lou2025swiftserverlessllmcold,
-      title={Towards Swift Serverless LLM Cold Starts with ParaServe}, 
-      author={Chiheng Lou and Sheng Qi and Chao Jin and Dapeng Nie and Haoran Yang and Xuanzhe Liu and Xin Jin},
+@misc{lou2025hydraserveminimizingcoldstart,
+      title={HydraServe: Minimizing Cold Start Latency for Serverless LLM Serving in Public Clouds}, 
+      author={Chiheng Lou and Sheng Qi and Chao Jin and Dapeng Nie and Haoran Yang and Yu Ding and Xuanzhe Liu and Xin Jin},
       year={2025},
       eprint={2502.15524},
       archivePrefix={arXiv},
