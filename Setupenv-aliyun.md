@@ -83,7 +83,7 @@ vim ~/.kube/config
 Log in to your master node and run the following commands.
 ```
 [Clone this repo]
-cd hydraserve-artifact/scripts/kubernetes
+cd hydraserve/scripts/kubernetes
 sh install_python.sh    # The Kubernetes package version must be consistent with your Kubernetes cluster version.
 sh tool-node-shell/setup.sh
 ```
@@ -98,7 +98,7 @@ kubectl label node [node_name] gpu_server=true --overwrite
 
 Next, apply the GPU sharing labels to all relevant nodes with the following command.
 ```
-cd hydraserve-artifact/scripts/kubernetes
+cd hydraserve/scripts/kubernetes
 SHARE=1 python label_nodes.py
 ```
 

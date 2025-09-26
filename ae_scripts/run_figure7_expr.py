@@ -26,7 +26,7 @@ for exec_type in execution_types:
     print(f"Configuring node labels for {exec_type}...")
     env = os.environ.copy()
     env['SHARE'] = '0' if 'serverlessllm' in exec_type else '1'
-    subprocess.run(['python', '/root/hydraserve-artifact/scripts/kubernetes/label_nodes.py'], check=True, env=env)
+    subprocess.run(['python', '/root/hydraserve/scripts/kubernetes/label_nodes.py'], check=True, env=env)
     for model_set in model_sets:
         for backend in backends:
             if backend == "a10" and model_set == "1":
